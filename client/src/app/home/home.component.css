@@ -1,0 +1,16 @@
+.hero{
+   
+    background-image: url('https://www.bora.com/fileadmin/_processed_/3/7/csm_2019_Druck_BORA_Professional_2x-PKG11_Kabeljaufilet_2a3e9ef791.jpg');
+    background-size:cover;
+    background-position: center;
+    
+    
+   
+}
+
+
+.showcase:hover{
+    border: 2px solid;
+    border-color: #f8d8b0;
+    
+}

@@ -1,0 +1,60 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar class="bg-dark text-white fw-bold">BrandRoot</mat-toolbar>
+    <mat-nav-list class="mt-2 p-2">
+      <a mat-list-item routerLink="/admin/dashboard" class="border rounded mt-3 tagline" 
+        ><i class="bi bi-grid-fill fs-5 me-2"></i>Dashboard</a
+      >
+      <a mat-list-item routerLink="/admin/products" class="border rounded mt-3 tagline">
+        <i class="bi bi-bag-fill fs-5 me-2"></i>Products</a
+      >
+      <a mat-list-item routerLink="/admin/users" class="border rounded mt-3 tagline"
+        ><i class="bi bi-people-fill fs-5 me-2"></i>Users</a
+      >
+      <a mat-list-item routerLink="/admin/dashboard" class="border rounded mt-3 tagline"
+        ><i class="bi bi-cart-fill fs-5 me-2"></i>Orders</a
+      >
+      <a mat-list-item routerLink="/admin/dashboard" class="border rounded mt-3 tagline"
+        ><i class="bi bi-bar-chart-fill fs-5 me-2"></i>Statitics</a
+      >
+      <a mat-list-item routerLink="/admin/dashboard" class="border rounded mt-3 tagline">
+        <i class="bi bi-pip-fill fs-5 me-2"></i>Sellers</a
+      >
+      <a mat-list-item routerLink="/admin/dashboard" class="border rounded mt-3 tagline"
+        > <i class="bi bi-pencil-fill fs-5 me-2"></i> Reviews</a
+      >
+      <a mat-list-item routerLink="/admin/dashboard" class="border rounded mt-3 tagline">
+        <i class="bi bi-bank2 fs-5 me-2"></i>Transactions</a
+      >
+      <a mat-list-item routerLink="/admin/dashboard" class="border rounded mt-3 tagline"
+        ><i class="bi bi-tags-fill fs-5 me-2"></i>Offers</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #746d6d">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon" class="text-white">menu</mat-icon>
+      </button>
+      <div class="d-flex">
+        <span class="text-white">AdminDashboard</span>
+        <button class=" btn btn-danger" style="margin-left: 1000px" routerLink="">Logout</button>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <app-admin-content></app-admin-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,90 @@
+<app-header></app-header>
+
+<div class="row" style="margin-top: 3%; padding-top: 4%;">
+  <!-- sidebar -->
+  <div class="col-3 border m-4" style="width: 300px; height: 100vh;">
+    <h2 class="mt-4 text-center">Categories</h2>
+    <hr class="text-danger" />
+    <div class="mt-2">
+      <p class="px-4 py-2 rounded border text-center fw-bold sidecontent " (click)="filter('Refrigerator')">Refrigerator</p>
+    </div>
+    <div class="mt-3">
+      <p class="px-4 py-2 rounded border text-center fw-bold sidecontent  " (click)="filter('Mixer')">Mixer</p>
+    </div>
+
+    <div class="mt-3">
+      <p class=" px-4 py-2 rounded border text-center fw-bold sidecontent  " (click)="filter('Air conditioner')">Air Cooler</p>
+    </div>
+
+    <div class="mt-3">
+      <p class=" px-4 py-2 rounded border text-center fw-bold sidecontent  " (click)="filter('Chair')">Chair</p>
+    </div>
+
+    <div class="mt-3">
+      <p class=" px-4 py-2 rounded border text-center fw-bold sidecontent " (click)="filter('Table')">Table</p>
+    </div>
+    <div class="mt-3">
+      <p class=" px-4 py-2 rounded border text-center fw-bold sidecontent  " (click)="filter('')">All</p>
+    </div>
+
+    <hr class="text-danger mt-5" />
+  </div>
+
+  <!-- main section -->
+  <div class="col-9 p-3 " >
+    <div class="mb-3">
+      <h1 class="fw-bold fs-2 text-center">All Products</h1>
+    </div>
+
+    <div class="mt-5 d-flex justify-content-center">
+      <form class="w-75">
+        <input
+          class=" form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="searchkey" [(ngModel)]="searchkey"
+        />
+      </form>
+    </div>
+
+    <!--All products display -->
+
+    <div class="shadow ms-3 p-5 mt-5" style="width: auto">
+      <div class="row g-4">
+        <div class="col-lg-4  " *ngFor="let product of filterCategory | filter:searchkey:'productName'" >
+          <div class="shadow p-4 rounded" style="width: 18rem" >
+            <img
+              [src]="product.image"
+              class="card-img-top mb-1 card-image"
+              alt="..."
+              routerLink="/singleproduct/{{product._id}}"
+              
+            />
+            <div class="card-body">
+              <h2 class="card-text text-center">{{product.productName.substring(0,30)}}...</h2>
+              <p class="text-center fw-bold">$ {{product.price}}</p>
+              <p class="text-center">
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+              </p>
+              <div class="d-flex justify-content-center">
+               
+                 <p
+                  class="btn btn-primary text-center"
+                  (click)="addTocart(product)"
+                >
+                  AddToCart
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

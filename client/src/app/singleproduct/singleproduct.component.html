@@ -1,0 +1,27 @@
+ <app-header></app-header>
+ 
+ <section class="py-5">
+    
+            <div class="container px-4 px-lg-5 my-5">
+                <i class="bi bi-arrow-left btn btn-info text-white" routerLink="/all-products"></i>
+                <div class="row gx-4 gx-lg-5 align-items-center" *ngIf="Product">
+                    <div class="col-md-6">
+                        <img class="card-img-top mb-5 mb-md-0" [src]="Product.image" alt="..." />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">SKU:{{Product._id}}</div>
+                        <h1 class="display-5 fw-bolder">{{Product.productName}}</h1>
+                        <div class="fs-5 mb-5 d-flex flex-column gap-3">
+                            
+                            <span>Price:$ {{Product.price}}</span>
+                            <span>Category:{{Product.category}}</span>
+                        </div>
+                        <p class="lead">Description:{{Product.description}}</p>
+                        <div class="d-flex">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

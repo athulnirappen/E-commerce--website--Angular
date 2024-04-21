@@ -1,0 +1,41 @@
+<div class="  d-flex align-items-center justify-content-center" style="background-color: #ade3d1;"> 
+    <div class="rounded mt-3 p-3 d-flex align-items-center justify-content-center flex-column bg-white shadow" style="width: 450px;">
+
+    
+    <h1 class="text-center fw-bold fs-2">Edit Product</h1>
+
+    <div class="  p-2">
+        <form [formGroup]="editform">
+          <div class="mb-3">
+            <label for="recipient-id" class="col-form-label">Id:</label>
+            <input type="text" class="form-control" id="recipient-id" formControlName="Id">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-id" class="col-form-label">Product Name:</label>
+            <input type="text" class="form-control" id="recipient-id" formControlName="productName">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-id" class="col-form-label">Product Image:</label>
+            <input type="text" class="form-control" id="recipient-id" formControlName="image">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-id" class="col-form-label">Price:</label>
+            <input type="text" class="form-control" id="recipient-id" formControlName="price">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-id" class="col-form-label">Category:</label>
+            <input type="text" class="form-control" id="recipient-id" formControlName="category">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="message-text" formControlName="description"></textarea>
+          </div>
+        </form>
+    </div>
+    <div class="d-flex align-items-center justify-content-center gap-3">
+        <button type="button" class="btn btn-danger" >Close</button>
+        <button type="button" class="btn btn-primary" (click)="update()">Update</button>
+      </div>
+      </div>
+
+</div>

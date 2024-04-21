@@ -1,0 +1,19 @@
+.sidecontent:hover{
+    background-color: #b410e1;
+    color: white;
+    cursor: pointer;
+
+}
+
+.card-image{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    
+    
+}
+
+.card-image:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}

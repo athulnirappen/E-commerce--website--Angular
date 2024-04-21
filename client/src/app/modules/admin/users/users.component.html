@@ -1,0 +1,56 @@
+<div class="p-2" style="background-color: #cfe1e8; height: 100vh">
+  <h1 class="text-center fw-bold fs-2 mt-3">All Users</h1>
+  <button class="btn btn-success" routerLink="/admin/dashboard">
+    Back To dashboard
+  </button>
+
+  <div class="d-flex justify-content-center align-items-center mt-5 p-2">
+    <div>
+      <input
+        type="search"
+        placeholder="Search here..."
+        class="form-control py-2"
+        style="width: 500px"
+        name="searchkey" [(ngModel)]="searchkey"
+      />
+    </div>
+  </div>
+
+  <!-- table -->
+
+  <div class="mt-5 shadow p-5 bg-white rounded">
+    <table class="table border rounded">
+      <thead>
+        <tr>
+          <th scope="col" class="border">id</th>
+          <th scope="col" class="border">First Name</th>
+          <th scope="col" class="border">Last Name</th>
+          <th scope="col" class="border">Username</th>
+          <th scope="col" class="border">Email</th>
+
+          <th scope="col" class="border">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of allUsers | users:searchkey:'firstname'">
+          <th scope="row" class="border p-2">#</th>
+          <td class="border p-2">{{user.firstname}}</td>
+          <td class="border p-2">{{user.lastname}}</td>
+          <td class="border p-2">{{user.username}}</td>
+          <td class="border p-2">{{user.email}}</td>
+
+          <td class="border p-2">
+            <div class="d-flex align-items-center justify-content-center" *ngIf="!user.isAdmin " >
+              <i
+                class="bi bi-trash border rounded bg-danger text-white btn" (click)="delete(user._id)"
+              ></i>
+            </div>
+            <div class="d-flex align-items-center justify-content-center" *ngIf="user.isAdmin " >
+              <p class="fw-bold text-center justify-content-center">Admin</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
